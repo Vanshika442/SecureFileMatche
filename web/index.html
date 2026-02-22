@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureFileMatcher | DAA Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">SecureFileMatcher</div>
+            <p class="subtitle">Secure String Matching Algorithm Analysis</p>
+        </header>
+
+        <main>
+            <div class="card input-section">
+                <div class="form-group">
+                    <label for="fileInput">Encrypted File</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="fileInput" accept=".txt">
+                        <div class="file-custom-btn">Choose File</div>
+                        <span id="fileName">No file chosen</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="patternInput">Search Pattern</label>
+                    <input type="text" id="patternInput" placeholder="Enter keyword to search...">
+                </div>
+
+                <div class="form-group">
+                    <label for="keyInput">Decryption Key (Shift Amount)</label>
+                    <input type="number" id="keyInput" value="1" min="1" max="25">
+                </div>
+
+                <div class="form-group">
+                    <label for="algoSelect">Algorithm</label>
+                    <select id="algoSelect">
+                        <option value="naive">Naive String Matching</option>
+                        <option value="kmp">Knuth-Morris-Pratt (KMP)</option>
+                        <option value="rabin-karp">Rabin-Karp</option>
+                    </select>
+                </div>
+
+                <button id="searchBtn">
+                    <span class="btn-text">Start Search</span>
+                    <div class="loader" id="loader"></div>
+                </button>
+            </div>
+
+            <div class="card result-section" id="resultSection" style="display: none;">
+                <h3>Analysis Result</h3>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="label">Status</span>
+                        <span class="value" id="resFound">Found</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Index Found</span>
+                        <span class="value" id="resIndex">12</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Time Taken</span>
+                        <span class="value" id="resTime">0.02 ms</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Algorithm</span>
+                        <span class="value" id="resAlgo">KMP</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
